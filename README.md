@@ -1,4 +1,4 @@
-# CodeAlpha Task 3 - Task Automation with Python
+Task Automation with Python
 
 ## 📌 Project Overview
 
