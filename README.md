@@ -1,70 +1,92 @@
-Task Automation with Python
+# CodeAlpha Task Automation
 
-## 📌 Project Overview
+A simple **Python and Flask-based task automation website** that automatically identifies and moves JPG/JPEG files from a source folder to a destination folder.
 
-This project is a simple Python automation tool that organizes JPG files automatically. It finds all `.jpg` files from a source folder and moves them to a destination folder.
+## 🚀 Features
 
-## 🎯 Objective
-
-To automate a repetitive file management task using Python and reduce manual effort.
+* Automatically detects `.jpg` and `.jpeg` files
+* Moves files from the source folder to the destination folder
+* Prevents overwriting existing files
+* Displays the number of files processed
+* Simple and clean web interface
+* Built with Python and Flask
 
 ## 🛠️ Technologies Used
 
 * Python
-* `os` module
-* `shutil` module
-
-## ⚙️ How It Works
-
-1. The program checks the source folder.
-2. It identifies files with the `.jpg` extension.
-3. It creates the destination folder if it does not exist.
-4. It automatically moves the JPG files to the destination folder.
-5. It displays the files moved and the total count.
+* Flask
+* HTML
+* CSS
+* JavaScript
+* OS and Shutil Python modules
 
 ## 📂 Project Structure
 
 ```text
 CodeAlpha-Task-Automation/
 │
+├── app.py
 ├── task_automation.py
+├── requirements.txt
+│
 ├── source_folder/
 ├── destination_folder/
-└── README.md
+│
+├── templates/
+│   └── index.html
+│
+└── static/
+    ├── style.css
+    └── script.js
 ```
+
+## ⚙️ How It Works
+
+1. JPG/JPEG files are placed inside the `source_folder`.
+2. The Flask website provides a **Run Automation** button.
+3. Python checks the source folder for JPG/JPEG files.
+4. Matching files are moved to the `destination_folder`.
+5. The website displays the automation result and file count.
 
 ## ▶️ How to Run
 
-Place JPG files inside the `source_folder` and run:
+Clone the repository:
 
 ```bash
-python task_automation.py
+git clone https://github.com/Bhoomikagowda06/CodeAlpha-Task-Automation.git
 ```
 
-The JPG files will be automatically moved to the `destination_folder`.
+Go to the project folder:
 
-## 💡 Example
+```bash
+cd CodeAlpha-Task-Automation
+```
 
-**Before:**
+Install the required package:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the Flask application:
+
+```bash
+python app.py
+```
+
+Open the website in your browser:
 
 ```text
-source_folder/
-├── image1.jpg
-├── image2.jpg
-└── notes.txt
+http://127.0.0.1:5000
 ```
 
-**After:**
+## 🎯 Purpose
 
-```text
-source_folder/
-└── notes.txt
+This project demonstrates how Python can be used to automate repetitive file-management tasks through a simple web interface.
 
-destination_folder/
-├── image1.jpg
-└── image2.jpg
-```
-
-## 👩‍💻 Author
+## 👩‍💻 Developed By
 
 **Bhoomika H S**
+
+CodeAlpha Internship – Task 1
+
