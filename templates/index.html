@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FileFlow | Task Automation</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="brand-icon">F</div>
+
+                <div>
+                    <h2>FileFlow</h2>
+                    <p>Task Automation</p>
+                </div>
+            </div>
+
+            <nav>
+                <a href="#" class="nav-item active">
+                    <span>▦</span>
+                    Dashboard
+                </a>
+
+                <a href="#how-it-works" class="nav-item">
+                    <span>?</span>
+                    How It Works
+                </a>
+
+                <a href="#about" class="nav-item">
+                    <span>i</span>
+                    About
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="status-dot"></div>
+                <div>
+                    <strong>Automation Ready</strong>
+                    <small>Python + Flask</small>
+                </div>
+            </div>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main">
+
+            <!-- Header -->
+            <header class="header">
+
+                <div>
+                    <p class="eyebrow">CODEALPHA TASK 3</p>
+                    <h1>File Automation Dashboard</h1>
+                    <p class="subtitle">
+                        Automatically organize JPG files with Python.
+                    </p>
+                </div>
+
+                <div class="header-badge">
+                    <span></span>
+                    System Ready
+                </div>
+
+            </header>
+
+
+            <!-- Stats -->
+            <section class="stats">
+
+                <div class="stat-card">
+                    <div class="stat-icon">JPG</div>
+
+                    <div>
+                        <p>JPG Files Ready</p>
+                        <h2 id="sourceCount">0</h2>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon">✓</div>
+
+                    <div>
+                        <p>Files Organized</p>
+                        <h2 id="destinationCount">0</h2>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon">⚡</div>
+
+                    <div>
+                        <p>Automation</p>
+                        <h2>Active</h2>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- Automation Card -->
+            <section class="automation-card">
+
+                <div class="card-heading">
+
+                    <div>
+                        <p class="section-label">AUTOMATION</p>
+                        <h2>JPG File Organizer</h2>
+
+                        <p>
+                            Move JPG and JPEG files from the source folder
+                            into the destination folder automatically.
+                        </p>
+                    </div>
+
+                    <div class="automation-icon">
+                        ⚙
+                    </div>
+
+                </div>
+
+
+                <div class="folder-flow">
+
+                    <div class="folder-box">
+
+                        <div class="folder-icon">
+                            📁
+                        </div>
+
+                        <div>
+                            <span>Source Folder</span>
+                            <strong>source_folder</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="arrow">
+                        →
+                    </div>
+
+
+                    <div class="folder-box">
+
+                        <div class="folder-icon">
+                            📂
+                        </div>
+
+                        <div>
+                            <span>Destination Folder</span>
+                            <strong>destination_folder</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <button id="runButton" class="run-button">
+
+                    <span class="button-icon">▶</span>
+
+                    <span id="buttonText">
+                        Run Automation
+                    </span>
+
+                </button>
+
+
+                <div id="resultBox" class="result-box hidden">
+
+                    <div id="resultIcon" class="result-icon">
+                        ✓
+                    </div>
+
+                    <div>
+                        <strong id="resultTitle">
+                            Automation Complete
+                        </strong>
+
+                        <p id="resultMessage">
+                            Files processed successfully.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div id="fileList" class="file-list hidden">
+
+                    <h3>Files Processed</h3>
+
+                    <ul id="files"></ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- How It Works -->
+            <section id="how-it-works" class="info-section">
+
+                <div class="section-label">
+                    HOW IT WORKS
+                </div>
+
+                <h2>Simple three-step automation</h2>
+
+                <div class="steps">
+
+                    <div class="step">
+
+                        <div class="step-number">01</div>
+
+                        <h3>Place Files</h3>
+
+                        <p>
+                            Add JPG or JPEG files to the
+                            source_folder.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">02</div>
+
+                        <h3>Run Automation</h3>
+
+                        <p>
+                            Click the Run Automation button
+                            on this dashboard.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">03</div>
+
+                        <h3>Files Organized</h3>
+
+                        <p>
+                            The Python script automatically
+                            moves the files to destination_folder.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- About -->
+            <section id="about" class="about-section">
+
+                <div>
+                    <div class="section-label">
+                        ABOUT THE PROJECT
+                    </div>
+
+                    <h2>Python File Automation</h2>
+
+                    <p>
+                        This project demonstrates how Python can
+                        automate repetitive file management tasks.
+                        Flask provides a simple web interface for
+                        running and monitoring the automation.
+                    </p>
+                </div>
+
+                <div class="tech-list">
+
+                    <span>Python</span>
+                    <span>Flask</span>
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+
+                </div>
+
+            </section>
+
+
+            <footer>
+                CodeAlpha Task 3 • Automation with Python Scripts
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

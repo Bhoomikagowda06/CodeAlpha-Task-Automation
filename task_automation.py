@@ -1,37 +1,54 @@
 import os
 import shutil
 
-# Define source and destination folders
-source_folder = "source_folder"
-destination_folder = "destination_folder"
 
-# Check if source folder exists
-if not os.path.exists(source_folder):
-    print("Source folder does not exist.")
-    exit()
+def organize_jpg_files(source_folder, destination_folder):
+    """
+    Moves all JPG/JPEG files from the source folder
+    to the destination folder.
+    """
 
-# Create destination folder if it does not exist
-if not os.path.exists(destination_folder):
-    os.makedirs(destination_folder)
+    if not os.path.exists(source_folder):
+        return {
+            "success": False,
+            "message": "Source folder does not exist.",
+            "moved_files": []
+        }
 
-# Count moved files
-moved_files = 0
+    os.makedirs(destination_folder, exist_ok=True)
 
-# Find and move JPG files
-for file_name in os.listdir(source_folder):
+    moved_files = []
 
-    if file_name.lower().endswith(".jpg"):
+    for filename in os.listdir(source_folder):
+        source_path = os.path.join(source_folder, filename)
 
-        source_path = os.path.join(source_folder, file_name)
-        destination_path = os.path.join(destination_folder, file_name)
+        if (
+            os.path.isfile(source_path)
+            and filename.lower().endswith((".jpg", ".jpeg"))
+        ):
+            destination_path = os.path.join(
+                destination_folder,
+                filename
+            )
 
-        shutil.move(source_path, destination_path)
+            # Avoid overwriting an existing file
+            if os.path.exists(destination_path):
+                name, extension = os.path.splitext(filename)
+                counter = 1
 
-        print(f"Moved: {file_name}")
-        moved_files += 1
+                while os.path.exists(destination_path):
+                    new_filename = f"{name}_{counter}{extension}"
+                    destination_path = os.path.join(
+                        destination_folder,
+                        new_filename
+                    )
+                    counter += 1
 
-# Display final result
-print("\n--------------------------------")
-print("Task Automation Completed!")
-print(f"Total JPG files moved: {moved_files}")
-print("--------------------------------")
+            shutil.move(source_path, destination_path)
+            moved_files.append(os.path.basename(destination_path))
+
+    return {
+        "success": True,
+        "message": f"{len(moved_files)} JPG file(s) moved successfully.",
+        "moved_files": moved_files
+    }
